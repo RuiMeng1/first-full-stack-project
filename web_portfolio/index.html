@@ -32,13 +32,13 @@
                 <a target="_blank" href="https://www.linkedin.com/in/roy-meng-b86282198/">LinkedIn</i></a>
             </div>
             <div id="play-game">
-                <button onclick="">Play game?</button>
+                <button onclick="playGame()">Play game?</button>
             </div>
-            <div style="display: none;" class="color-div">
+            <div style="display: none;" class="colour-div">
                 <h4>Pick a colour</h4>
                 <p style="display: none;">Great... you ruined it</p>
-                <input type="color" id="color-picker" onchange="" value="#0084ff" />
-                <button onclick="" style="display: none;">Reset</button>
+                <input type="color" id="colour-picker" onchange="changeColour()" value="#0084ff" />
+                <button onclick="resetColour()" style="display: none;">Reset</button>
             </div>
         </section>
         <section>
@@ -137,7 +137,7 @@
                         <div class="card-button-secondary">
                             <p>NextJS</p>
                         </div>
-                        <div class="card-button-secondary">
+                    <div class="card-button-secondary">
                             <p>NextJS</p>
                         </div>
                     </div>
@@ -158,5 +158,38 @@
     <footer>
         <p>By <a target="_blank" href="">Roy</a>, ⭐️ the repo on <a target="_blank" href="https://github.com/RuiMeng1/web_portfolio">Github</a> </p>
     </footer>
+    <script>
+        // interactivity for colour switching game
+
+        // 1. select all html elements so we can later manipulate them
+        const body = document.querySelector('body')
+        const colourInput = document.getElementById('colour-picker')
+        const colourDiv = document.querySelector('.colour-div')
+        const hiddenText = document.querySelector('.colour-div p')
+        const resetBtn = document.querySelector('.colour-div button')
+        const playBtn = document.getElementById('play-game')
+        // 2. create functions
+        function playGame(){
+            colourDiv.style.display = 'block'
+            playBtn.style.display = 'none'
+        }
+        function changeColour(){
+            const selectedColour = colourInput.value
+            body.style.background = selectedColour
+            resetBtn.style.display = 'block'
+            hiddenText.style.display = 'block'
+            colourInput.style.display = 'none'
+        }
+        function resetColour(){
+            body.style.background = 'white'
+            hiddenText.style.display = 'none'
+            resetBtn.style.display = 'none'
+            colourDiv.style.display = 'none'
+            colourInput.style.display = 'block'
+            playBtn.style.display = 'block'
+        }
+        // 3. assign functions to buttons to call the elements
+
+    </script>
 </body>
-</html>
+</html> *-/
